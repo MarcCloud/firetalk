@@ -1,0 +1,23 @@
+<ion-header-bar class="bar-assertive">
+	  <h1 class="title">Fire Chat</h1>
+</ion-header-bar>
+<ion-content>	
+	<div class="content has-header">
+		<form name="loginForm" novalidate="true">
+			<div class="list">
+			  <label class="item item-input">
+			    <input type="email" ng-model="login.user.email" name="email" placeholder="Email">
+			  </label>
+			  <label class="item item-input">
+			    <input type="password" ng-model="login.user.password" name="password" placeholder="Password">
+			  </label>
+			</div>
+			<div class="padding">
+				<button class="button button-block button-assertive" ng-click="login.enter()">Come in</button>
+			</div>
+            <div class="padding">
+                <button class="button button-block button-assertive" ng-click="login.register()">Join us!</button>
+            </div>
+		</form>
+	</div>
+</ion-content>
