@@ -1,4 +1,8 @@
-angular.module('fire-talk', ['ionic','ui.router','fire-talk-login','fire-talk-lobby'])
+angular.module('fire-talk', ['ionic',
+                             'ui.router',
+                             'fire-talk-login',
+                             'fire-talk-lobby',
+                             'fire-talk-chat-room'])
   .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
       $urlRouterProvider.otherwise("/")
       $stateProvider
@@ -22,10 +26,11 @@ angular.module('fire-talk', ['ionic','ui.router','fire-talk-login','fire-talk-lo
           controller:'LobbyCtrl',
           controllerAs:'lobby'
         })
-        .state('lobby.chat',{
-          url:'lobby/:chatId',
+        .state('chat',{
+          url:'/chat/:chatId',
           templateUrl:'views/chatRoom.html',
-          controller:'ChatCrtl'
+          controller:'ChatCtrl',
+          controllerAs:'chat'
         })
   }])
   .run(function($ionicPlatform) {

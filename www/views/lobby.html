@@ -9,11 +9,13 @@
         </label>
     </div>
     <div id="rooms">
-        <ul>
+        <ul class="container">
             <li ng-repeat="room in lobby.rooms">
-                <div ng-bind="room.roomname"></div>
-                <div ng-bind="room.createdby"></div>
-                <button class="button button-block button-dark" ng-click="lobby.join()">Join</button>
+                <div class="row">
+                    <span ng-bind="room.roomname" class="col col-30"></span>
+                    <span ng-bind="room.createdby"class="col col-50" ></span>
+                    <button class="button button-inline button-dark" ng-click="lobby.joinRoom($index)">Join</button>
+                </div>
             </li>
         </ul>
     </div>
