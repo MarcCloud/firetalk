@@ -7,7 +7,7 @@
         return function(roomId){
             var chatRoom = new Firebase(Connections.firebase + '/chatRooms/' + roomId);
             var roomSync = $firebase(chatRoom.child('roomname'));
-            var msgsSync = $firebase(chatRoom.child('chatMessages'));
+            var messagesSync = $firebase(chatRoom.child('chatMessages'));
 
             return {
                 roomInfo: getRoomInfo,
@@ -18,10 +18,10 @@
                 return roomSync.$asObject();
             }
             function getConversation(){
-                return msgsSync.$asArray();
+                return messagesSync.$asArray();
             }
             function sendMessage(message){
-
+                messagesSync.$push(message);
             }
         }
     }

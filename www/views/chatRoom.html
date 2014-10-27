@@ -1,6 +1,24 @@
-<ion-header-bar>
-    <h1>{{chat.roomName}}</h1>
+<ion-header-bar class="bar-assertive">
+    <h1 class="title" ng-bind="chat.roomName"></h1>
 </ion-header-bar>
 <ion-content>
-   {{chat.conversation}}
+    <ul id="conversation">
+        <li ng-repeat="verse in chat.conversation" class="message row">
+            <div class="user col col-40" ng-class="{'pull-right':chat.user.email===verse.postedby}">
+                <span class=""></span>
+                <span class="" ng-bind="verse.postedby"></span>
+            </div>
+            <div class="message-text col col-60" ng-bind="verse.message"></div>
+        </li>
+    </ul>
 </ion-content>
+<ion-footer-bar class="bar-clear">
+        <div class="row item-input-inset">
+            <label class="item-input-wrapper col-80">
+                <input ng-model="chat.newMessage" type="text" placeholder="Type your message here...">
+            </label>
+            <button class="button button-small button-dark" ng-click="chat.sendMessage()">
+                Send
+            </button>
+        </div>
+</ion-footer-bar>

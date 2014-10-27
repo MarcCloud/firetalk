@@ -6,6 +6,7 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+      <link rel="stylesheet" href="lib/ionicons/css/ionicons.min.css"/>
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -25,7 +26,12 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/common/service-connections.js"></script>
-    <script src="js/login/login.js"></script>
+    <script src="js/common/service-user.js"></script>
+      <script src="js/menu/menu.js"></script>
+      <script src="js/menu/controller-menu.js"></script>
+      <script src="js/login/login.js"></script>
+      <script src="js/signup/signup.js"></script>
+      <script src="js/signup/controller-signup.js"></script>
     <script src="js/login/controller-login.js"></script>
     <script src="js/lobby/lobby.js"></script>
     <script src="js/lobby/service-rooms.js"></script>
@@ -35,6 +41,21 @@
     <script src="js/chatRoom/controller-chat-room.js"></script>
   </head>
   <body ng-app="fire-talk">
-    <div ui-view></div>
+  <ion-side-menus>
+      <!-- Center content -->
+      <ion-side-menu-content>
+          <div ui-view></div>
+      </ion-side-menu-content>
+
+      <!-- Left menu -->
+      <ion-side-menu side="left" width="128" ng-controller="MenuCtrl as menu">
+          <ion-list class="list">
+              <ion-item class="item" ng-click="menu.logout()">
+                Log Out
+              </ion-item>
+          </ion-list>
+      </ion-side-menu>
+  </ion-side-menus>
+
   </body>
 </html>

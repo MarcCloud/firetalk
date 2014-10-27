@@ -1,3 +1,23 @@
-<div>
-	<h1>Signup</h1>
-</div>
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">Sign up to Fire Chat</h1>
+</ion-header-bar>
+<ion-content>
+	<div class="content has-header">
+		<form name="signupForm" novalidate="true">
+			<div class="list">
+				<label class="item item-input">
+					<input type="email" ng-model="signup.user.email" name="email" placeholder="Email">
+				</label>
+				<label class="item item-input">
+					<input type="password" ng-model="signup.user.password" name="password" placeholder="Password">
+				</label>
+				<label class="item item-input">
+					<input type="password" name="confirmPassword" placeholder="Confirm Password">
+				</label>
+			</div>
+			<div class="padding">
+				<button class="button button-block button-assertive" ng-click="signup.submit()">Fire Up!</button>
+			</div>
+		</form>
+	</div>
+</ion-content>

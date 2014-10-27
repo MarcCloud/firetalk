@@ -1,10 +1,12 @@
 angular.module('fire-talk', ['ionic',
                              'ui.router',
+                             'fire-talk-menu',
                              'fire-talk-login',
+                             'fire-talk-signup',
                              'fire-talk-lobby',
                              'fire-talk-chat-room'])
   .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
-      $urlRouterProvider.otherwise("/")
+      $urlRouterProvider.otherwise("/");
       $stateProvider
         .state('login',
         {
